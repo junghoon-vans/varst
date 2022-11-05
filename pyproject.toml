@@ -21,7 +21,6 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-tox = "^3.27.0"
 
 
 [build-system]
