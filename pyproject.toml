@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "var2rst"
+name = "varst"
 version = "0.1.0"
 description = "Replace substitutions in rst files with variables."
 authors = ["Jeonghun-Ban <junghoon.ban@gmail.com>"]
 maintainers = ["Jeonghun-Ban <junghoon.ban@gmail.com>"]
 license = "MIT"
 readme = "README.rst"
-repository = "https://github.com/junghoon-vans/var2rst"
+repository = "https://github.com/junghoon-vans/varst"
 keywords = ["rst", "reST", "reStructuredText", "replace", "substitution"]
 classifiers = [
     "Environment :: Console",
@@ -15,7 +15,7 @@ classifiers = [
     "Topic :: Text Processing",
 ]
 packages = [
-    { include = "var2rst" },
+    { include = "varst" },
 ]
 
 
