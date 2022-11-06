@@ -22,7 +22,7 @@ packages = [
 varst = 'varst.cli:main'
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 
 
 [tool.poetry.group.test.dependencies]
