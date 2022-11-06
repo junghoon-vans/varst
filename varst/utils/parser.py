@@ -18,12 +18,14 @@ class Parser:
             "--input",
             type=str,
             help="rst file path as input",
+            default="./README.rst",
         )
         self._parser.add_argument(
             "-o",
             "--output",
             type=str,
             help="rst file path as output",
+            default="./README.rst",
         )
 
     def parse_args_dict(self, argv: Optional[Sequence[str]]) -> dict[str, Any]:
