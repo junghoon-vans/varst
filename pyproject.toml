@@ -18,6 +18,8 @@ packages = [
     { include = "varst" },
 ]
 
+[tool.poetry.scripts]
+varst = 'varst.cli:main'
 
 [tool.poetry.dependencies]
 python = "^3.7"
