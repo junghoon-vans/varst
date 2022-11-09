@@ -18,5 +18,4 @@ class Application:
                 argv: Arguments vector
 
         """
-        args_dict = self.parser.parse_args_dict(argv)
-        print(args_dict)
+        self.parser.parse(argv)

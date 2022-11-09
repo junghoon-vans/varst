@@ -1,7 +1,7 @@
 import argparse
 import re
 from argparse import ArgumentParser
-from typing import Any
+from typing import List
 from typing import Optional
 from typing import Sequence
 
@@ -15,6 +15,10 @@ def _variable_type(arg_value, pat=re.compile(r"[a-zA-Z]=[a-zA-Z]")):
 class Parser:
 
     _parser = ArgumentParser()
+
+    input_file: str = ""
+    output_file: str = ""
+    variables: List[str] = []
 
     def __init__(self) -> None:
         self._parser.add_argument(
@@ -37,6 +41,10 @@ class Parser:
             default="./README.rst",
         )
 
-    def parse_args_dict(self, argv: Optional[Sequence[str]]) -> dict[str, Any]:
+    def parse(self, argv: Optional[Sequence[str]]) -> None:
         args = self._parser.parse_args(argv)
-        return vars(args)
+        arg_dict = vars(args)
+
+        self.input_file = arg_dict['input']
+        self.output_file = arg_dict['output']
+        self.variables = arg_dict['variables']
