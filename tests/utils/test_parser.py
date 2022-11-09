@@ -9,21 +9,20 @@ def parser() -> Parser:
     return parser
 
 
-def test_parse_args(parser: Parser):
+def test_parse_without_file_path(parser: Parser):
+    parser.parse([
+        'varst=variable to reStructuredText',
+    ])
 
-    assert parser.parse_args_dict(['varst=variable to reStructuredText']) == {
-        'variables': ['varst=variable to reStructuredText'],
-        'input': './README.rst',
-        'output': './README.rst',
-    }
+    assert parser.variables == ['varst=variable to reStructuredText']
+    assert parser.input_file == './README.rst'
+    assert parser.output_file == './README.rst'
 
-    assert parser.parse_args_dict(
-        [
-            'varst=variable to reStructuredText',
-            '-i=./CHANGELOG.rst', '-o=./CHANGELOG.rst',
-        ],
-    ) == {
-        'variables': ['varst=variable to reStructuredText'],
-        'input': './CHANGELOG.rst',
-        'output': './CHANGELOG.rst',
-    }
+
+def test_parse_with_file_path(parser: Parser):
+    parser.parse([
+        '-i=./CHANGELOG.rst', '-o=./CHANGELOG.rst',
+    ])
+
+    assert parser.input_file == './CHANGELOG.rst'
+    assert parser.output_file == './CHANGELOG.rst'
