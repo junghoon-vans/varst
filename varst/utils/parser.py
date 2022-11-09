@@ -1,6 +1,7 @@
 import argparse
 import re
 from argparse import ArgumentParser
+from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Sequence
@@ -12,13 +13,31 @@ def _variable_type(arg_value, pat=re.compile(r"[a-zA-Z]+=[a-zA-Z]+")):
     return arg_value
 
 
+def _parse_kv(variables: List[str]) -> Dict[str, str]:
+    """Parse ``key-value`` pair from variables.
+
+        Args:
+            variables: The string list to be parsed.
+        Returns:
+            Dict[str, str]: key-value pair
+
+    """
+    result: Dict[str, str] = {}
+
+    for variable in variables:
+        kv = variable.split("=")
+        result[kv.pop()] = kv.pop()
+
+    return result
+
+
 class Parser:
 
     _parser = ArgumentParser()
 
     input_file: str = ""
     output_file: str = ""
-    variables: List[str] = []
+    variables: Dict[str, str] = {}
 
     def __init__(self) -> None:
         self._parser.add_argument(
@@ -47,4 +66,4 @@ class Parser:
 
         self.input_file = arg_dict['input']
         self.output_file = arg_dict['output']
-        self.variables = arg_dict['variables']
+        self.variables = _parse_kv(arg_dict['variables'])
