@@ -1,7 +1,15 @@
+import argparse
+import re
 from argparse import ArgumentParser
 from typing import Any
 from typing import Optional
 from typing import Sequence
+
+
+def _variable_type(arg_value, pat=re.compile(r"[a-zA-Z]=[a-zA-Z]")):
+    if not pat.match(arg_value):
+        raise argparse.ArgumentTypeError("invalid value")
+    return arg_value
 
 
 class Parser:
@@ -12,6 +20,7 @@ class Parser:
         self._parser.add_argument(
             "variables", nargs="*",
             help="key-value pairs of substitutions",
+            type=_variable_type,
         )
         self._parser.add_argument(
             "-i",
