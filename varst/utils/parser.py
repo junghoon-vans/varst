@@ -19,7 +19,7 @@ class Parser:
         self._parser.add_argument(
             "variables", nargs="*",
             help="key-value pairs of substitutions",
-            type=_variable_type,
+            type=_pattern_type,
         )
         self._parser.add_argument(
             "-i",
@@ -45,9 +45,17 @@ class Parser:
         self.variables = _parse_kv(arg_dict['variables'])
 
 
-def _variable_type(arg_value, pat=re.compile(r"[a-zA-Z]+=[a-zA-Z]+")):
+def _pattern_type(arg_value: str, pat=re.compile(r"[a-zA-Z]+=[a-zA-Z]+")):
+    """
+        Args:
+            arg_value: The string value to check pattern.
+            pat: The pattern to match value.
+        Returns:
+            str: Returns arg_value that matched with pattern.
+
+    """
     if not pat.match(arg_value):
-        raise argparse.ArgumentTypeError("invalid value")
+        raise argparse.ArgumentTypeError(f"invalid pattern {pat}")
     return arg_value
 
 
