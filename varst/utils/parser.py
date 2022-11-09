@@ -6,7 +6,7 @@ from typing import Optional
 from typing import Sequence
 
 
-def _variable_type(arg_value, pat=re.compile(r"[a-zA-Z]=[a-zA-Z]")):
+def _variable_type(arg_value, pat=re.compile(r"[a-zA-Z]+=[a-zA-Z]+")):
     if not pat.match(arg_value):
         raise argparse.ArgumentTypeError("invalid value")
     return arg_value
