@@ -49,7 +49,8 @@ _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
 
 
 def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
-    """
+    """ Verify that the arg_value fully matches the pattern.
+
         Args:
             arg_value: The string value to check pattern.
             pat: The pattern to match value.
