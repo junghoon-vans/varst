@@ -42,3 +42,7 @@ def test_parse_with_file_path(parser: Parser):
 def test_parse_one_element(parser: Parser):
     with argparse_error():
         parser.parse(['one'])
+    with argparse_error():
+        parser.parse(['key='])
+    with argparse_error():
+        parser.parse(['=value'])
