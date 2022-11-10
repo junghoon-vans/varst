@@ -72,7 +72,7 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
 
 
 def _parse_kv(variables: List[str]) -> Dict[str, str]:
-    """Parse ``key-value`` pair from variables.
+    """ Parse ``key-value`` pair from variables.
 
         Args:
             variables: The string list to be parsed.
