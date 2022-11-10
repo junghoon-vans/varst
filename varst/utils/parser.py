@@ -58,7 +58,7 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
 
     """
     if not pat.match(arg_value):
-        raise argparse.ArgumentTypeError(f"invalid pattern {pat}")
+        raise argparse.ArgumentTypeError(f"invalid pattern: {pat.pattern}")
     return arg_value
 
 
