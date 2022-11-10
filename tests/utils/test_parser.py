@@ -1,18 +1,20 @@
+from typing import Generator
+
 import pytest
 
 from tests.utils import argparse_error
 from varst.utils.parser import Parser
 
 
-@pytest.fixture
-def parser() -> Parser:
+@pytest.fixture(scope="session")
+def parser() -> Generator[Parser, None, None]:
     parser = Parser()
     parser.parse([
         'varst=variable to reStructuredText',
         'version=0.2.0',
         'release=v0.2.0',
     ])
-    return parser
+    yield parser
 
 
 def test_parse_variables(parser: Parser):
