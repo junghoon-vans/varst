@@ -8,6 +8,7 @@ from typing import Sequence
 
 
 class Parser:
+    """Parser class that parse arguments from cli"""
 
     _parser = ArgumentParser()
 
@@ -37,6 +38,13 @@ class Parser:
         )
 
     def parse(self, argv: Optional[Sequence[str]]) -> None:
+        """ Parse the arguments from argv.
+            Parsed values are updated in the attributes of the parser.
+
+            Args:
+                argv: Arguments vector
+
+        """
         args = self._parser.parse_args(argv)
         arg_dict = vars(args)
 
