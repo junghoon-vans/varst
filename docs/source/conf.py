@@ -12,6 +12,7 @@ copyright = f'2022, {project}'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
+    'sphinx_search.extension',
 ]
 
 templates_path = ['_templates']
