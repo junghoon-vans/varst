@@ -38,11 +38,11 @@ class Parser:
         )
 
     def parse(self, argv: Optional[Sequence[str]]) -> None:
-        """ Parse the arguments from argv.
-            Parsed values are updated in the attributes of the parser.
+        """Parse the arguments from argv.
+        Parsed values are updated in the attributes of the parser.
 
-            Args:
-                argv: Arguments vector
+        Args:
+            argv: Arguments vector
 
         """
         args = self._parser.parse_args(argv)
@@ -57,13 +57,13 @@ _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
 
 
 def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
-    """ Verify that the arg_value fully matches the pattern.
+    """Verify that the arg_value fully matches the pattern.
 
-        Args:
-            arg_value: The string value to check pattern.
-            pat: The pattern to match value.
-        Returns:
-            str: Returns arg_value that matched with pattern.
+    Args:
+        arg_value: The string value to check pattern.
+        pat: The pattern to match value.
+    Returns:
+        str: Returns arg_value that matched with pattern.
 
     """
     if not pat.fullmatch(arg_value):
@@ -72,12 +72,12 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
 
 
 def _parse_kv(variables: List[str]) -> Dict[str, str]:
-    """ Parse ``key-value`` pair from variables.
+    """Parse ``key-value`` pair from variables.
 
-        Args:
-            variables: The string list to be parsed.
-        Returns:
-            Dict[str, str]: key-value pair
+    Args:
+        variables: The string list to be parsed.
+    Returns:
+        Dict[str, str]: key-value pair
 
     """
     result: Dict[str, str] = {}
