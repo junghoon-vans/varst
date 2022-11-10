@@ -45,7 +45,7 @@ class Parser:
         self.variables = _parse_kv(arg_dict['variables'])
 
 
-_VARIABLE_PATTERN = re.compile(r".*=.*")
+_VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
 
 
 def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
@@ -57,7 +57,7 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
             str: Returns arg_value that matched with pattern.
 
     """
-    if not pat.match(arg_value):
+    if not pat.fullmatch(arg_value):
         raise argparse.ArgumentTypeError(f"invalid pattern: {pat.pattern}")
     return arg_value
 
