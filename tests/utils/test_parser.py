@@ -1,5 +1,6 @@
 import pytest
 
+from tests.utils import argparse_error
 from varst.utils.parser import Parser
 
 
@@ -34,3 +35,8 @@ def test_parse_with_file_path(parser: Parser):
 
     assert parser.input_file == './CHANGELOG.rst'
     assert parser.output_file == './CHANGELOG.rst'
+
+
+def test_parse_one_element(parser: Parser):
+    with argparse_error():
+        parser.parse(['one'])
