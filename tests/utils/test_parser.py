@@ -1,29 +1,62 @@
+from typing import Generator
+
 import pytest
 
+from tests.utils import argparse_error
 from varst.utils.parser import Parser
 
 
-@pytest.fixture
-def parser() -> Parser:
+@pytest.fixture(scope="session")
+def parser() -> Generator[Parser, None, None]:
     parser = Parser()
-    return parser
+    parser.parse([
+        'varst=variable to reStructuredText',
+        'version=0.2.0',
+        'release=v0.2.0',
+    ])
+    yield parser
 
 
-def test_parse_args(parser: Parser):
-
-    assert parser.parse_args_dict(['varst=variable to reStructuredText']) == {
-        'variables': ['varst=variable to reStructuredText'],
-        'input': './README.rst',
-        'output': './README.rst',
+def test_parse_variables(parser: Parser):
+    assert parser.variables == {
+        'varst': 'variable to reStructuredText',
+        'version': '0.2.0',
+        'release': 'v0.2.0',
     }
 
-    assert parser.parse_args_dict(
-        [
-            'varst=variable to reStructuredText',
-            '-i=./CHANGELOG.rst', '-o=./CHANGELOG.rst',
-        ],
-    ) == {
-        'variables': ['varst=variable to reStructuredText'],
-        'input': './CHANGELOG.rst',
-        'output': './CHANGELOG.rst',
-    }
+
+def test_parse_without_file_path(parser: Parser):
+    assert parser.input_file == './README.rst'
+    assert parser.output_file == './README.rst'
+
+
+def test_parse_with_file_path(parser: Parser):
+    parser.parse([
+        '-i=./CHANGELOG.rst', '-o=./CHANGELOG.rst',
+    ])
+
+    assert parser.input_file == './CHANGELOG.rst'
+    assert parser.output_file == './CHANGELOG.rst'
+
+
+def test_parse_one_element(parser: Parser):
+    with argparse_error():
+        parser.parse(['one'])
+    with argparse_error():
+        parser.parse(['key='])
+    with argparse_error():
+        parser.parse(['=value'])
+
+
+def test_parse_more_than_two_element(parser: Parser):
+    with argparse_error():
+        parser.parse(['key=value=else'])
+
+
+def test_parse_many_equals(parser: Parser):
+    with argparse_error():
+        parser.parse(['key==value'])
+    with argparse_error():
+        parser.parse(['key===value'])
+    with argparse_error():
+        parser.parse(['key====value'])
