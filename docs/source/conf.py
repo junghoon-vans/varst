@@ -11,6 +11,9 @@ copyright = f'2022, {project}'
 
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx_search.extension',
+    'myst_parser',
 ]
 
 templates_path = ['_templates']
@@ -20,4 +23,5 @@ exclude_patterns = ['Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = 'furo'
+html_title = f'varST documentation v{release}'
 html_static_path = ['_static']
