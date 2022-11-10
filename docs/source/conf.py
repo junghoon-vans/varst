@@ -20,4 +20,5 @@ exclude_patterns = ['Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = 'furo'
+html_title = f'varST documentation v{release}'
 html_static_path = ['_static']
