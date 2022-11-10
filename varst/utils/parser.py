@@ -45,7 +45,7 @@ class Parser:
         self.variables = _parse_kv(arg_dict['variables'])
 
 
-def _pattern_type(arg_value: str, pat=re.compile(r"[a-zA-Z]+=[a-zA-Z]+")):
+def _pattern_type(arg_value: str, pat=re.compile(r".*=.*")):
     """
         Args:
             arg_value: The string value to check pattern.
