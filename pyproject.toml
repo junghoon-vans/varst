@@ -24,6 +24,7 @@ varst = 'varst.cli:main'
 
 [tool.poetry.dependencies]
 python = "^3.9"
+docutils = "^0.19"
 
 
 [tool.poetry.group.dev.dependencies]

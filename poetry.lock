@@ -93,7 +93,7 @@ python-versions = "*"
 name = "docutils"
 version = "0.19"
 description = "Docutils -- Python Documentation Utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -674,7 +674,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "f086c68c23fca1e550a3f53e61dce0dd66ca8ba2cd0adb3361d86f7bec000e2c"
+content-hash = "6a34e056d7ddb4381a3cb9b3968f985f46fd7c1a4a806883fdf2d624d58ca2cf"
 
 [metadata.files]
 alabaster = [
