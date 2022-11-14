@@ -1,4 +1,5 @@
 import docutils
+from docutils.core import publish_from_doctree
 from docutils.core import Publisher
 from docutils.nodes import document as Document
 from docutils.nodes import Element
@@ -6,6 +7,7 @@ from docutils.nodes import Node
 from docutils.nodes import Text
 from docutils.parsers.rst import Parser
 from docutils.utils import new_document
+from docutils_rst_writer import Writer as RstWriter
 
 
 class RstDocument:
@@ -64,3 +66,14 @@ class RstDocument:
             old=text_node,
             new=Text(value),
         )
+
+    def save(self, dest: str) -> None:
+        """Save the document object to the destination path as rst file.
+
+        Args:
+            dest: The string value of destination path.
+
+        """
+        output = publish_from_doctree(self.document, writer=RstWriter())
+        with open(dest, encoding='utf-8', mode='w') as f:
+            f.write(str(output, 'utf-8'))
