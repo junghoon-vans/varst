@@ -3,6 +3,7 @@ from docutils.core import Publisher
 from docutils.nodes import document as Document
 from docutils.nodes import Element
 from docutils.nodes import Node
+from docutils.nodes import Text
 from docutils.parsers.rst import Parser
 from docutils.utils import new_document
 
@@ -47,3 +48,12 @@ class RstDocument:
 
         """
         return self.substitution_def_node(name).next_node()
+
+    def replace_substitution(self, name, value):
+        def_node: Element = self.substitution_def_node(name)
+        text_node: Node = self.substitution_text(name)
+
+        def_node.replace(
+            old=text_node,
+            new=Text(value),
+        )
