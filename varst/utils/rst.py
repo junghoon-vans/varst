@@ -2,6 +2,7 @@ import docutils
 from docutils.core import Publisher
 from docutils.nodes import document as Document
 from docutils.nodes import Element
+from docutils.nodes import Node
 from docutils.parsers.rst import Parser
 from docutils.utils import new_document
 
@@ -35,3 +36,14 @@ class RstDocument:
 
         """
         return self.document.substitution_defs[name]
+
+    def substitution_text(self, name) -> Node:
+        """Find substitution text by name.
+
+        Args:
+            name: substitution name for searching text
+        Returns:
+            Node: substitution text
+
+        """
+        return self.substitution_def_node(name).next_node()
