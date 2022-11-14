@@ -31,9 +31,9 @@ class RstDocument:
         """Find substitution definition node by name.
 
         Args:
-            name: substitution name for searching node
+            name: The string value of substitution name.
         Returns:
-            Element: substitution definition node
+            Element: The node object what define substitution.
 
         """
         return self.document.substitution_defs[name]
@@ -42,9 +42,9 @@ class RstDocument:
         """Find substitution text by name.
 
         Args:
-            name: substitution name for searching text
+            name: The string value of substitution name.
         Returns:
-            Node: substitution text
+            Node: The node object of substitution text.
 
         """
         return self.substitution_def_node(name).next_node()
