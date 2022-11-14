@@ -49,7 +49,14 @@ class RstDocument:
         """
         return self.substitution_def_node(name).next_node()
 
-    def replace_substitution(self, name, value):
+    def replace_substitution(self, name: str, value: str) -> None:
+        """Replace substitution text with name to value.
+
+        Args:
+            name: The string value of substitution name.
+            value: The string value of substitution text.
+
+        """
         def_node: Element = self.substitution_def_node(name)
         text_node: Node = self.substitution_text(name)
 
