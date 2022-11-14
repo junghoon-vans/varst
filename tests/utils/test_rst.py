@@ -18,3 +18,7 @@ def rst_document() -> RstDocument:
 def test_get_document(rst_document: RstDocument):
 
     assert isinstance(rst_document.document, Document)
+
+
+def test_substitution_text(rst_document: RstDocument):
+    assert rst_document.substitution_text("status") == "false"
