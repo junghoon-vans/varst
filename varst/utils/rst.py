@@ -27,7 +27,7 @@ class RstDocument:
     def document(self, value):
         self._document = value
 
-    def substitution_def_node(self, name) -> Element:
+    def substitution_def_node(self, name: str) -> Element:
         """Find substitution definition node by name.
 
         Args:
@@ -38,7 +38,7 @@ class RstDocument:
         """
         return self.document.substitution_defs[name]
 
-    def substitution_text(self, name) -> Node:
+    def substitution_text(self, name: str) -> Node:
         """Find substitution text by name.
 
         Args:
