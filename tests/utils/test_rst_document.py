@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from docutils.nodes import document as Document
 
-from varst.utils.rst import RstDocument
+from varst.utils.rst_document import RstDocument
 
 
 @pytest.fixture
