@@ -1,3 +1,9 @@
+## v0.4.1 (2022-11-16)
+
+### Refactor
+
+- Rename rst module to rst_document
+
 ## v0.4.0 (2022-11-16)
 
 ### Feat
