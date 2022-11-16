@@ -1,3 +1,17 @@
+## v0.4.0 (2022-11-16)
+
+### Feat
+
+- Add save function to save documnet object as rst file
+- Add replace_substitution function
+- Add substitution_text function to find substitution text
+- Add substitution_def_node function to find substitution_def node
+- Create rst module to read input file as document
+
+### Refactor
+
+- Update rst.py to add missing typing
+
 ## v0.3.0 (2022-11-10)
 
 ### Feat
