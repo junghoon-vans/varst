@@ -1,10 +1,13 @@
 import argparse
+import os
 import re
 from argparse import ArgumentParser
 from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Sequence
+
+from varst import supported
 
 
 class Parser:
@@ -25,14 +28,14 @@ class Parser:
         self._parser.add_argument(
             "-i",
             "--input",
-            type=str,
+            type=_file_type,
             help="rst file path as input",
             default="./README.rst",
         )
         self._parser.add_argument(
             "-o",
             "--output",
-            type=str,
+            type=_file_type,
             help="rst file path as output",
             default="./README.rst",
         )
@@ -69,6 +72,15 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
     if not pat.fullmatch(arg_value):
         raise argparse.ArgumentTypeError(f"invalid pattern: {pat.pattern}")
     return arg_value
+
+
+def _file_type(file_name: str):
+    ext = os.path.splitext(file_name)[1][1:]
+    if ext.lower() not in supported:
+        raise argparse.ArgumentTypeError(
+            f"file extension must be in {supported}",
+        )
+    return file_name
 
 
 def _parse_kv(variables: List[str]) -> Dict[str, str]:
