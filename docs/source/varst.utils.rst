@@ -10,6 +10,7 @@ Submodules
    varst.utils.parser
    varst.utils.rst_document
    varst.utils.rst_file
+   varst.utils.substitution
 
 Module contents
 ---------------
