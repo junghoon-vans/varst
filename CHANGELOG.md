@@ -1,3 +1,9 @@
+## v1.0.0 (2022-11-23)
+
+### Feat
+
+- Drop rst_document module
+
 ## v0.5.0 (2022-11-23)
 
 ### Feat
