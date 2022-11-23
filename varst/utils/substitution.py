@@ -32,6 +32,21 @@ class Substitution:
                 return content
         raise KeyError(name)
 
+    def update(self, name, value):
+        """Update substitution text with name to value.
+
+        Args:
+            name: The string value of substitution name.
+            value: The string value of substitution text.
+
+        """
+        origin = self.find(name)
+        new = substitution_text(name, value)
+
+        origin_idx = self.rst_file.contents.index(origin)
+        self.rst_file.contents.pop(origin_idx)
+        self.rst_file.contents.insert(origin_idx, new + "\n")
+
 
 def substitution_text(name, value) -> str:
     return f'.. |{name}| replace:: {value}'
