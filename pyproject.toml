@@ -24,8 +24,6 @@ varst = 'varst.cli:main'
 
 [tool.poetry.dependencies]
 python = "^3.9"
-docutils = "^0.19"
-docutils-rst-writer = { git = "https://github.com/junghoon-vans/docutils-rst-writer.git", branch = "support-0.18-or-higher-versions-of-docutils"}
 
 
 [tool.poetry.group.dev.dependencies]

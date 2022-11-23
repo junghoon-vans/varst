@@ -8,7 +8,6 @@ Submodules
    :maxdepth: 4
 
    varst.utils.parser
-   varst.utils.rst_document
    varst.utils.rst_file
    varst.utils.substitution
 
