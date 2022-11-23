@@ -1,3 +1,13 @@
+## v0.5.0 (2022-11-23)
+
+### Feat
+
+- Add _file_type method to allow only supported file extensions
+- Add update function to substitution
+- Add find function to substitution
+- Add substitution module to handle substitutions
+- Add rst_file module to handle rst file
+
 ## v0.4.1 (2022-11-16)
 
 ### Refactor
