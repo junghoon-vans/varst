@@ -1,3 +1,9 @@
+## v1.1.1 (2022-11-24)
+
+### Fix
+
+- Resolve key error when subsitutions were finded with whitespace
+
 ## v1.1.0 (2022-11-24)
 
 ### Feat
