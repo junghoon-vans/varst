@@ -3,6 +3,8 @@ from typing import Optional
 from typing import Sequence
 
 from varst.utils.parser import Parser
+from varst.utils.rst_file import RstFile
+from varst.utils.substitution import Substitution
 
 
 class Application:
@@ -12,10 +14,16 @@ class Application:
         self.parser = Parser()
 
     def run(self, argv: Optional[Sequence[str]]):
-        """Run application
+        """Run application to replace substitutions.
 
             Args:
                 argv: Arguments vector
 
         """
         self.parser.parse(argv)
+
+        rst_file = RstFile(src=self.parser.input_file)
+        substitution = Substitution(rst_file)
+        for k, v in self.parser.variables.items():
+            substitution.update(k, v)
+        rst_file.save(dest=self.parser.output_file)
