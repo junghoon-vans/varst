@@ -21,6 +21,8 @@ def substitution() -> Substitution:
 def test_find_substitution(substitution: Substitution):
     content = substitution.find("status")
     print(content)
+    content = substitution.find("with whitespace")
+    print(content)
 
     with pytest.raises(KeyError):
         substitution.find("state")
