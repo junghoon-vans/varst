@@ -16,7 +16,7 @@ Usage
 
 .. code:: bash
 
-   varst [-i INPUT] [-o OUTPUT] [name=value ...]
+   $ varst [-i INPUT] [-o OUTPUT] [name=value ...]
 
 
 API documentation
