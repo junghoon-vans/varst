@@ -21,8 +21,8 @@ class Parser:
 
     def __init__(self) -> None:
         self._parser.add_argument(
-            "variables", nargs="*",
-            help="key-value pairs of substitutions",
+            "name=value", nargs="*",
+            help="name-value pairs of substitutions",
             type=_pattern_type,
         )
         self._parser.add_argument(
