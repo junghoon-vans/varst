@@ -1,3 +1,17 @@
+## v1.1.0 (2022-11-24)
+
+### Feat
+
+- Update application module to replace substitutions
+
+### Fix
+
+- Resolve failure to get variables
+
+### Refactor
+
+- Update parser to change help message
+
 ## v1.0.0 (2022-11-23)
 
 ### Feat
