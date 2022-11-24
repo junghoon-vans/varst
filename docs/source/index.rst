@@ -2,6 +2,23 @@
 var ➡️ reStructuredText
 =======================
 
+Replace substitutions in rst files with variables.
+
+Installation
+============
+
+.. code:: bash
+
+   $ pip install varst
+
+Usage
+=====
+
+.. code:: bash
+
+   varst [-i INPUT] [-o OUTPUT] [name=value ...]
+
+
 API documentation
 =================
 
