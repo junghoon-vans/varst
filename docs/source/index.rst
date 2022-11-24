@@ -2,13 +2,13 @@
 var ➡️ reStructuredText
 =======================
 
-Contents
-========
+API documentation
+=================
 
 .. toctree::
    :maxdepth: 2
 
-   varst
+   api/varst
 
 Changelog
 =========
