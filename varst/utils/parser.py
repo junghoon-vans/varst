@@ -53,7 +53,7 @@ class Parser:
 
         self.input_file = arg_dict['input']
         self.output_file = arg_dict['output']
-        self.variables = _parse_kv(arg_dict['variables'])
+        self.variables = _parse_kv(arg_dict['name=value'])
 
 
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
