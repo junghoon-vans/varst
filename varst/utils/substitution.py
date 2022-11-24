@@ -19,16 +19,10 @@ class Substitution:
             KeyError: If substitution is not in file.
 
         """
-        pattern = re.compile(
-            fr"""
-                \.\.[ ]+          # explicit markup start
-                \|                # substitution indicator
-                ({name})\|        # substitution name
-            """, re.VERBOSE,
-        )
+        pattern = fr"""\.\.[ ]+\|({name})\|"""
 
         for content in self.rst_file.contents:
-            if pattern.match(content):
+            if re.match(pattern, content):
                 return content
         raise KeyError(name)
 

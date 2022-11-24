@@ -19,11 +19,14 @@ def substitution() -> Substitution:
 
 
 def test_find_substitution(substitution: Substitution):
-    content = substitution.find("status")
-    print(content)
+    none_whitespace = substitution.find("status")
+    with_whitespace = substitution.find("with whitespace")
+
+    print(none_whitespace)
+    print(with_whitespace)
 
     with pytest.raises(KeyError):
-        substitution.find("state")
+        substitution.find("not exist name")
 
 
 def test_create_substitution():
