@@ -21,8 +21,8 @@ class Parser:
 
     def __init__(self) -> None:
         self._parser.add_argument(
-            "variables", nargs="*",
-            help="key-value pairs of substitutions",
+            "name=value", nargs="*",
+            help="name-value pairs of substitutions",
             type=_pattern_type,
         )
         self._parser.add_argument(
@@ -53,7 +53,7 @@ class Parser:
 
         self.input_file = arg_dict['input']
         self.output_file = arg_dict['output']
-        self.variables = _parse_kv(arg_dict['variables'])
+        self.variables = _parse_kv(arg_dict['name=value'])
 
 
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
