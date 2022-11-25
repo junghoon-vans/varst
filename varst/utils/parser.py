@@ -59,7 +59,7 @@ class Parser:
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
 
 
-def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
+def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN) -> str:
     """Verify that the arg_value fully matches the pattern.
 
     Args:
@@ -74,7 +74,7 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
     return arg_value
 
 
-def _file_type(file_name: str):
+def _file_type(file_name: str) -> str:
     ext = os.path.splitext(file_name)[1][1:]
     if ext.lower() not in supported:
         raise argparse.ArgumentTypeError(

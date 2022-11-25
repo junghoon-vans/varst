@@ -8,7 +8,7 @@ class Substitution:
     def __init__(self, rst_file: RstFile):
         self.rst_file = rst_file
 
-    def find(self, name) -> str:
+    def find(self, name: str) -> str:
         """Find substitution text by name.
 
         Args:
@@ -26,7 +26,7 @@ class Substitution:
                 return content
         raise KeyError(name)
 
-    def update(self, name, value):
+    def update(self, name: str, value: str) -> None:
         """Update substitution text with name to value.
 
         Args:
@@ -42,5 +42,5 @@ class Substitution:
         self.rst_file.contents.insert(origin_idx, new + "\n")
 
 
-def substitution_text(name, value) -> str:
+def substitution_text(name: str, value: str) -> str:
     return f'.. |{name}| replace:: {value}'

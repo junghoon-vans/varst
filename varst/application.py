@@ -13,7 +13,7 @@ class Application:
     def __init__(self) -> None:
         self.parser = Parser()
 
-    def run(self, argv: Optional[Sequence[str]]):
+    def run(self, argv: Optional[Sequence[str]]) -> None:
         """Run application to replace substitutions.
 
             Args:

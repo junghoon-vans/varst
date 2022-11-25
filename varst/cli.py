@@ -4,7 +4,7 @@ from typing import Sequence
 from varst import application
 
 
-def main(argv: Optional[Sequence[str]] = None):
+def main(argv: Optional[Sequence[str]] = None) -> None:
     """Main function to run application
 
         Args:
