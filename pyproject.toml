@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "varst"
-version = "1.1.1"
+version = "1.1.2"
 description = "Replace substitutions in rst files with variables."
 authors = ["Jeonghun-Ban <junghoon.ban@gmail.com>"]
 maintainers = ["Jeonghun-Ban <junghoon.ban@gmail.com>"]
@@ -50,7 +50,7 @@ requires = [
 [tool]
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "1.1.1"
+version = "1.1.2"
 tag_format = "v$version"
 version_files = [
     "pyproject.toml:version",

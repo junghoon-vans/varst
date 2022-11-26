@@ -1,3 +1,9 @@
+## v1.1.2 (2022-11-26)
+
+### Refactor
+
+- Add missing typing to methods
+
 ## v1.1.1 (2022-11-24)
 
 ### Fix
