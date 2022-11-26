@@ -66,7 +66,7 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN) -> str:
         arg_value: The string value to check pattern.
         pat: The pattern to match value.
     Returns:
-        str: Returns arg_value if pattern matched.
+        Returns arg_value if pattern matched.
     Raises:
         argparse.ArgumentTypeError
 
@@ -82,7 +82,7 @@ def _file_type(file_name: str) -> str:
     Args:
         file_name: The file name to check file extension.
     Returns:
-        str: Returns file name if file extension is correct.
+        Returns file name if file extension is correct.
     Raises:
         argparse.ArgumentTypeError
 
@@ -102,7 +102,7 @@ def _parse_kv(variables: List[str]) -> Dict[str, str]:
     Args:
         variables: The string list to be parsed.
     Returns:
-        Dict[str, str]: key-value pair
+        key-value pair
 
     """
     result: Dict[str, str] = {}

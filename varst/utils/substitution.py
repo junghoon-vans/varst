@@ -14,7 +14,7 @@ class Substitution:
         Args:
             name: The string value of substitution name.
         Returns:
-            str: Returns substitution text if substitution exists.
+            Returns substitution text if substitution exists.
         Raises:
             KeyError: If substitution is not in file.
 
@@ -49,7 +49,7 @@ def substitution_text(name: str, value: str) -> str:
         name: The string value of substitution name.
         value: The string value of substitution text.
     Returns:
-        str: Returns substitution text.
+        Returns substitution text.
 
     """
     return f'.. |{name}| replace:: {value}'
