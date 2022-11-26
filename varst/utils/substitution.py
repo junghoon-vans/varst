@@ -43,4 +43,13 @@ class Substitution:
 
 
 def substitution_text(name: str, value: str) -> str:
+    """Create substitution text by using name and value.
+
+    Args:
+        name: The string value of substitution name.
+        value: The string value of substitution text.
+    Returns:
+        str: Returns substitution text.
+
+    """
     return f'.. |{name}| replace:: {value}'
