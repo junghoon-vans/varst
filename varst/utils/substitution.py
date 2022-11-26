@@ -14,7 +14,7 @@ class Substitution:
         Args:
             name: The string value of substitution name.
         Returns:
-            substitution_text: The string value of substitution text.
+            str: Returns substitution text if substitution exists.
         Raises:
             KeyError: If substitution is not in file.
 
