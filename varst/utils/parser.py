@@ -66,7 +66,9 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN) -> str:
         arg_value: The string value to check pattern.
         pat: The pattern to match value.
     Returns:
-        str: Returns arg_value that matched with pattern.
+        str: Returns arg_value if pattern matched.
+    Raises:
+        argparse.ArgumentTypeError
 
     """
     if not pat.fullmatch(arg_value):
