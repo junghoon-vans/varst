@@ -59,14 +59,16 @@ class Parser:
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
 
 
-def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
+def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN) -> str:
     """Verify that the arg_value fully matches the pattern.
 
     Args:
         arg_value: The string value to check pattern.
         pat: The pattern to match value.
     Returns:
-        str: Returns arg_value that matched with pattern.
+        Returns arg_value if pattern matched.
+    Raises:
+        argparse.ArgumentTypeError
 
     """
     if not pat.fullmatch(arg_value):
@@ -74,7 +76,18 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN):
     return arg_value
 
 
-def _file_type(file_name: str):
+def _file_type(file_name: str) -> str:
+    """Verify that the file extension is correct.
+
+    Args:
+        file_name: The file name to check file extension.
+    Returns:
+        Returns file name if file extension is correct.
+    Raises:
+        argparse.ArgumentTypeError
+
+    """
+
     ext = os.path.splitext(file_name)[1][1:]
     if ext.lower() not in supported:
         raise argparse.ArgumentTypeError(
@@ -89,7 +102,7 @@ def _parse_kv(variables: List[str]) -> Dict[str, str]:
     Args:
         variables: The string list to be parsed.
     Returns:
-        Dict[str, str]: key-value pair
+        key-value pair
 
     """
     result: Dict[str, str] = {}
