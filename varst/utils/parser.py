@@ -75,6 +75,17 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN) -> str:
 
 
 def _file_type(file_name: str) -> str:
+    """Verify that the file extension is correct.
+
+    Args:
+        file_name: The file name to check file extension.
+    Returns:
+        str: Returns file name if file extension is correct.
+    Raises:
+        argparse.ArgumentTypeError
+
+    """
+
     ext = os.path.splitext(file_name)[1][1:]
     if ext.lower() not in supported:
         raise argparse.ArgumentTypeError(
