@@ -24,6 +24,6 @@ class Application:
 
         rst_file = RstFile(src=self.parser.input_file)
         substitution = Substitution(rst_file)
-        for k, v in self.parser.variables.items():
+        for k, v in self.parser.sub_pairs.items():
             substitution.update(k, v)
         rst_file.save(dest=self.parser.output_file)

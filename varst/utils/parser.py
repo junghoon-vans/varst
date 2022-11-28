@@ -17,7 +17,7 @@ class Parser:
 
     input_file: str = ""
     output_file: str = ""
-    variables: Dict[str, str] = {}
+    sub_pairs: Dict[str, str] = {}
 
     def __init__(self) -> None:
         self._parser.add_argument(
@@ -53,7 +53,7 @@ class Parser:
         self.input_file = self.output_file = arg_dict['input']
         if arg_dict['output'] is not None:
             self.output_file = arg_dict['output']
-        self.variables = _parse_kv(arg_dict['name=value'])
+        self.sub_pairs = _parse_kv(arg_dict['name=value'])
 
 
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")

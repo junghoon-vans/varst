@@ -17,8 +17,8 @@ def parser() -> Generator[Parser, None, None]:
     yield parser
 
 
-def test_parse_variables(parser: Parser):
-    assert parser.variables == {
+def test_parse_sub_pairs(parser: Parser):
+    assert parser.sub_pairs == {
         'varst': 'variable to reStructuredText',
         'version': '0.2.0',
         'release': 'v0.2.0',
