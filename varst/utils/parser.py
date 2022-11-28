@@ -37,7 +37,6 @@ class Parser:
             "--output",
             type=_file_type,
             help="rst file path as output",
-            default="./README.rst",
         )
 
     def parse(self, argv: Optional[Sequence[str]]) -> None:
@@ -51,8 +50,9 @@ class Parser:
         args = self._parser.parse_args(argv)
         arg_dict = vars(args)
 
-        self.input_file = arg_dict['input']
-        self.output_file = arg_dict['output']
+        self.input_file = self.output_file = arg_dict['input']
+        if arg_dict['output'] is not None:
+            self.output_file = arg_dict['output']
         self.variables = _parse_kv(arg_dict['name=value'])
 
 
