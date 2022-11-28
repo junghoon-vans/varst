@@ -13,13 +13,12 @@ from varst import supported
 class Parser:
     """Parser class that parse arguments from cli"""
 
-    _parser = ArgumentParser()
-
-    input_file: str = ""
-    output_file: str = ""
-    sub_pairs: Dict[str, str] = {}
-
     def __init__(self) -> None:
+        self._parser = ArgumentParser()
+        self.input_file: str = ""
+        self.output_file: str = ""
+        self.sub_pairs: Dict[str, str] = {}
+
         self._parser.add_argument(
             "name=value", nargs="*",
             help="name-value pairs of substitutions",
