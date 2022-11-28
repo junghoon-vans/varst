@@ -1,3 +1,14 @@
+## v1.2.0 (2022-11-28)
+
+### Feat
+
+- Set default value of output path as input path
+
+### Refactor
+
+- Change variable initialization to be done in init method
+- Rename variable in parser to sub_pairs
+
 ## v1.1.2 (2022-11-26)
 
 ### Refactor
