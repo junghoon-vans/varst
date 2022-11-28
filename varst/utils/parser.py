@@ -13,13 +13,12 @@ from varst import supported
 class Parser:
     """Parser class that parse arguments from cli"""
 
-    _parser = ArgumentParser()
-
-    input_file: str = ""
-    output_file: str = ""
-    variables: Dict[str, str] = {}
-
     def __init__(self) -> None:
+        self._parser = ArgumentParser()
+        self.input_file: str = ""
+        self.output_file: str = ""
+        self.sub_pairs: Dict[str, str] = {}
+
         self._parser.add_argument(
             "name=value", nargs="*",
             help="name-value pairs of substitutions",
@@ -37,7 +36,6 @@ class Parser:
             "--output",
             type=_file_type,
             help="rst file path as output",
-            default="./README.rst",
         )
 
     def parse(self, argv: Optional[Sequence[str]]) -> None:
@@ -51,9 +49,10 @@ class Parser:
         args = self._parser.parse_args(argv)
         arg_dict = vars(args)
 
-        self.input_file = arg_dict['input']
-        self.output_file = arg_dict['output']
-        self.variables = _parse_kv(arg_dict['name=value'])
+        self.input_file = self.output_file = arg_dict['input']
+        if arg_dict['output'] is not None:
+            self.output_file = arg_dict['output']
+        self.sub_pairs = _parse_kv(arg_dict['name=value'])
 
 
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")
