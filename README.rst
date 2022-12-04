@@ -16,9 +16,18 @@ Installation
 Usage
 =====
 
+Command
+-------
+
 .. code:: bash
 
    $ varst [-i INPUT] [-o OUTPUT] [name=value ...]
+
+Github Actions
+--------------
+
+varST can be integrated with ``Github Actions``.
+Please refer to this link_ and apply it to your own workflows.
 
 License
 =======
@@ -34,3 +43,5 @@ License <https://github.com/junghoon-vans/varst/blob/main/LICENSE>`__
 .. |GitHub Workflow Status| image:: https://img.shields.io/github/workflow/status/junghoon-vans/varst/Upload%20Python%20Package
 .. |Documentation Status| image:: https://readthedocs.org/projects/varst/badge/?version=latest
     :target: https://varst.readthedocs.io/en/latest/?badge=latest
+
+.. _link: https://github.com/marketplace/actions/rst-substitution
