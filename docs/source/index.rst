@@ -14,9 +14,18 @@ Installation
 Usage
 =====
 
+Command
+-------
+
 .. code:: bash
 
    $ varst [-i INPUT] [-o OUTPUT] [name=value ...]
+
+Github Actions
+--------------
+
+varST can be integrated with ``Github Actions``.
+Please refer to this link_ and apply it to your own workflows.
 
 
 API documentation
@@ -41,3 +50,6 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
+
+
+.. _link: https://github.com/marketplace/actions/rst-substitution
