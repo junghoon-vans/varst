@@ -7,21 +7,21 @@ varST(var ➡️ reStructuredText)
 Replace substitutions in rst files with variables.
 
 Installation
-------------
+============
 
 .. code:: bash
 
    $ pip install varst
 
 Usage
------
+=====
 
 .. code:: bash
 
    $ varst [-i INPUT] [-o OUTPUT] [name=value ...]
 
 License
--------
+=======
 
 `MIT
 License <https://github.com/junghoon-vans/varst/blob/main/LICENSE>`__
