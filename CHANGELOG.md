@@ -1,3 +1,12 @@
+## v1.2.1 (2022-12-22)
+
+### Refactor
+
+- **parser**: Update help message for substitution argument
+- **parser**: Rename argument to substitutions
+- Rename parameters in subsitution utils
+- Rename function to create substition definition
+
 ## v1.2.0 (2022-11-28)
 
 ### Feat
