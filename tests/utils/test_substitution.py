@@ -29,5 +29,15 @@ def test_find_substitution(substitution: Substitution):
         substitution.find("not exist name")
 
 
+def test_update_substitution(substitution: Substitution):
+    substitution.update("status", "true")
+    substitution.update("with whitespace", "true")
+
+    assert substitution.find("status") == """.. |status| replace:: true\n"""
+    assert substitution.find(
+        "with whitespace",
+    ) == """.. |with whitespace| replace:: true\n"""
+
+
 def test_create_substitution():
     assert substitution_text("key", "value") == """.. |key| replace:: value"""
