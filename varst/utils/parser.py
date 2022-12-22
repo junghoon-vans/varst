@@ -21,7 +21,7 @@ class Parser:
 
         self._parser.add_argument(
             "substitutions", nargs="*",
-            help="name-value pairs of substitutions",
+            help="pairs of substitution definition. format is 'text=data'",
             type=_pattern_type,
         )
         self._parser.add_argument(
