@@ -9,14 +9,14 @@ class Substitution:
         self.rst_file = rst_file
 
     def find(self, name: str) -> str:
-        """Find substitution text by name.
+        """Find substitution definition by name.
 
         Args:
             name: The string value of substitution name.
         Returns:
-            Returns substitution text if substitution exists.
+            Returns substitution definition if it exists.
         Raises:
-            KeyError: If substitution is not in file.
+            KeyError: If substitution definition is not in file.
 
         """
         pattern = fr"""\.\.[ ]+\|({name})\|"""
@@ -27,7 +27,7 @@ class Substitution:
         raise KeyError(name)
 
     def update(self, name: str, value: str) -> None:
-        """Update substitution text with name to value.
+        """Update substitution definition with name to value.
 
         Args:
             name: The string value of substitution name.
@@ -49,7 +49,7 @@ def substitution_def(name: str, value: str) -> str:
         name: The string value of substitution name.
         value: The string value of substitution text.
     Returns:
-        Returns substitution text.
+        Returns substitution definition.
 
     """
     return f'.. |{name}| replace:: {value}'
