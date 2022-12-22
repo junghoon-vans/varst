@@ -8,48 +8,48 @@ class Substitution:
     def __init__(self, rst_file: RstFile):
         self.rst_file = rst_file
 
-    def find(self, name: str) -> str:
-        """Find substitution definition by name.
+    def find(self, text: str) -> str:
+        """Find substitution definition by substitution text.
 
         Args:
-            name: The string value of substitution name.
+            text: The string value of substitution text.
         Returns:
             Returns substitution definition if it exists.
         Raises:
             KeyError: If substitution definition is not in file.
 
         """
-        pattern = fr"""\.\.[ ]+\|({name})\|"""
+        pattern = fr"""\.\.[ ]+\|({text})\|"""
 
         for content in self.rst_file.contents:
             if re.match(pattern, content):
                 return content
-        raise KeyError(name)
+        raise KeyError(text)
 
-    def update(self, name: str, value: str) -> None:
-        """Update substitution definition with name to value.
+    def update(self, text: str, data: str) -> None:
+        """Update substitution definition by using substitution text and data.
 
         Args:
-            name: The string value of substitution name.
-            value: The string value of substitution text.
+            text: The string value of substitution text.
+            data: The string value of substitution data.
 
         """
-        origin = self.find(name)
-        new = substitution_def(name, value)
+        origin = self.find(text)
+        new = substitution_def(text, data)
 
         origin_idx = self.rst_file.contents.index(origin)
         self.rst_file.contents.pop(origin_idx)
         self.rst_file.contents.insert(origin_idx, new + "\n")
 
 
-def substitution_def(name: str, value: str) -> str:
-    """Create substitution definition by using name and value.
+def substitution_def(text: str, data: str) -> str:
+    """Create substitution definition by using substitution text and data.
 
     Args:
-        name: The string value of substitution name.
-        value: The string value of substitution text.
+        text: The string value of substitution text.
+        data: The string value of substitution data.
     Returns:
         Returns substitution definition.
 
     """
-    return f'.. |{name}| replace:: {value}'
+    return f'.. |{text}| replace:: {data}'
