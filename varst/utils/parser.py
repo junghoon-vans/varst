@@ -20,8 +20,8 @@ class Parser:
         self.sub_pairs: Dict[str, str] = {}
 
         self._parser.add_argument(
-            "name=value", nargs="*",
-            help="name-value pairs of substitutions",
+            "substitutions", nargs="*",
+            help="pairs of substitution definition. format is 'text=data'",
             type=_pattern_type,
         )
         self._parser.add_argument(
@@ -52,7 +52,7 @@ class Parser:
         self.input_file = self.output_file = arg_dict['input']
         if arg_dict['output'] is not None:
             self.output_file = arg_dict['output']
-        self.sub_pairs = _parse_kv(arg_dict['name=value'])
+        self.sub_pairs = _parse_kv(arg_dict['substitutions'])
 
 
 _VARIABLE_PATTERN = re.compile(r"[^=]+=[^=]+")

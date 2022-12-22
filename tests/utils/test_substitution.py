@@ -5,7 +5,7 @@ import pytest
 
 from varst.utils.rst_file import RstFile
 from varst.utils.substitution import Substitution
-from varst.utils.substitution import substitution_text
+from varst.utils.substitution import substitution_def
 
 TEST_DATA_PATH = os.path.join(
     Path(__file__).resolve().parent.parent, 'data',
@@ -29,5 +29,15 @@ def test_find_substitution(substitution: Substitution):
         substitution.find("not exist name")
 
 
+def test_update_substitution(substitution: Substitution):
+    substitution.update("status", "true")
+    substitution.update("with whitespace", "true")
+
+    assert substitution.find("status") == """.. |status| replace:: true\n"""
+    assert substitution.find(
+        "with whitespace",
+    ) == """.. |with whitespace| replace:: true\n"""
+
+
 def test_create_substitution():
-    assert substitution_text("key", "value") == """.. |key| replace:: value"""
+    assert substitution_def("key", "value") == """.. |key| replace:: value"""
