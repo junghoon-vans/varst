@@ -6,22 +6,18 @@ varST(var ➡️ reStructuredText)
 
 Replace substitutions in rst files with variables.
 
-Installation
-============
+Getting Started
+===============
+
+cli
+-------
+
+   See |Quickstart Documentation Page|_.
 
 .. code:: bash
 
    $ pip install varst
-
-Usage
-=====
-
-Command
--------
-
-.. code:: bash
-
-   $ varst [-i INPUT] [-o OUTPUT] [name=value ...]
+   $ varst -h  # --help
 
 Github Actions
 --------------
@@ -34,6 +30,9 @@ License
 
 `MIT
 License <https://github.com/junghoon-vans/varst/blob/main/LICENSE>`__
+
+.. |Quickstart Documentation Page| replace:: quickstart documentation
+.. _Quickstart Documentation Page: https://varst.readthedocs.io/en/latest/index.html#quickstart
 
 .. |PyPI version| image:: https://img.shields.io/pypi/v/varst
    :target: https://pypi.org/project/varst/
