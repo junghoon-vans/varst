@@ -35,15 +35,15 @@ class Substitution:
 
         """
         origin = self.find(name)
-        new = substitution_text(name, value)
+        new = substitution_def(name, value)
 
         origin_idx = self.rst_file.contents.index(origin)
         self.rst_file.contents.pop(origin_idx)
         self.rst_file.contents.insert(origin_idx, new + "\n")
 
 
-def substitution_text(name: str, value: str) -> str:
-    """Create substitution text by using name and value.
+def substitution_def(name: str, value: str) -> str:
+    """Create substitution definition by using name and value.
 
     Args:
         name: The string value of substitution name.
