@@ -1,4 +1,6 @@
 import re
+from typing import Match
+from typing import Optional
 
 from varst.utils.rst_file import RstFile
 
@@ -57,3 +59,22 @@ def substitution_def(
 
     """
     return f'.. |{text}| {directive}:: {data}'
+
+
+def directive_type(substitution: str) -> str:
+    """Get directive type from substitution definition.
+
+    Args:
+        substitution: The string value of substitution definition.
+    Returns:
+        Returns directive type.
+    Raises:
+        ValueError: If directive type is not valid.
+
+    """
+
+    pattern = r"""\|(.*)\|(.*?)::"""
+    result: Optional[Match[str]] = re.search(pattern, substitution)
+    if result:
+        return result.group(2).strip()
+    raise ValueError("directive type is not valid")
