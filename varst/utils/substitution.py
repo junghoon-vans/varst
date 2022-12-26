@@ -37,7 +37,7 @@ class Substitution:
 
         """
         origin = self.find(text)
-        new = substitution_def(text, data)
+        new = substitution_def(text, data, directive_type(origin))
 
         origin_idx = self.rst_file.contents.index(origin)
         self.rst_file.contents.pop(origin_idx)
