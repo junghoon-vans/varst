@@ -44,5 +44,11 @@ def test_create_substitution():
 
 
 def test_directive_type():
-    substitution = ".. |badge| image:: https://example.com/"
-    assert directive_type(substitution) == "image"
+    replacement_text_type = ".. |RST| replace:: reStructuredText"
+    assert directive_type(replacement_text_type) == "replace"
+
+    image_type = ".. |badge| image:: https://example.com/"
+    assert directive_type(image_type) == "image"
+
+    object_type = ".. |The Transparent Society| book:: isbn=0738201448"
+    assert directive_type(object_type) == "book"
