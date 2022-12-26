@@ -42,14 +42,18 @@ class Substitution:
         self.rst_file.contents.insert(origin_idx, new + "\n")
 
 
-def substitution_def(text: str, data: str) -> str:
+def substitution_def(
+    text: str, data: str,
+    directive: str = 'replace',
+) -> str:
     """Create substitution definition by using substitution text and data.
 
     Args:
         text: The string value of substitution text.
         data: The string value of substitution data.
+        directive: The string value of directive type.
     Returns:
         Returns substitution definition.
 
     """
-    return f'.. |{text}| replace:: {data}'
+    return f'.. |{text}| {directive}:: {data}'
