@@ -32,6 +32,14 @@ Usage
    # run with multiple substitutions
    $ varst 'name1=value1' 'name2=value2'
 
+Directive Type
+==============
+
+.. toctree::
+   :maxdepth: 2
+
+   directive.type
+
 Github Actions
 ==============
 
