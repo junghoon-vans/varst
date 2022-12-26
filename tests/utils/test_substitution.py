@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 from varst.utils.rst_file import RstFile
+from varst.utils.substitution import directive_type
 from varst.utils.substitution import Substitution
 from varst.utils.substitution import substitution_def
 
@@ -43,3 +44,8 @@ def test_update_substitution(substitution: Substitution):
 
 def test_create_substitution():
     assert substitution_def("key", "value") == """.. |key| replace:: value"""
+
+
+def test_directive_type():
+    substitution = ".. |badge| image:: https://example.com/"
+    assert directive_type(substitution) == "image"
