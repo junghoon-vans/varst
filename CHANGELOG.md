@@ -1,3 +1,11 @@
+## v1.3.0 (2022-12-26)
+
+### Feat
+
+- **substitution**: Make update method pass directive_type
+- **substitution**: Add directive_type method
+- **substitution**: Add directive param to substitution_def method
+
 ## v1.2.1 (2022-12-22)
 
 ### Refactor
