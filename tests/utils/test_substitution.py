@@ -20,26 +20,23 @@ def substitution() -> Substitution:
 
 
 def test_find_substitution(substitution: Substitution):
-    none_whitespace = substitution.find("status")
-    with_whitespace = substitution.find("with whitespace")
+    full_name = substitution.find("RST")
+    logo_image = substitution.find("logo")
 
-    print(none_whitespace)
-    print(with_whitespace)
+    print(full_name)
+    print(logo_image)
 
     with pytest.raises(KeyError):
         substitution.find("not exist name")
 
 
 def test_update_substitution(substitution: Substitution):
-    substitution.update("status", "true")
-    substitution.update("with whitespace", "true")
-    substitution.update("badge", "success")
+    substitution.update("RST", "rst")
+    substitution.update("logo", "https://example.com/")
 
-    assert substitution.find("status") == """.. |status| replace:: true\n"""
-    assert substitution.find(
-        "with whitespace",
-    ) == """.. |with whitespace| replace:: true\n"""
-    assert substitution.find("badge") == """.. |badge| image:: success\n"""
+    assert substitution.find("RST") == """.. |RST| replace:: rst\n"""
+    assert substitution.find("logo")\
+        == """.. |logo| image:: https://example.com/\n"""
 
 
 def test_create_substitution():
