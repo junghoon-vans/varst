@@ -32,11 +32,13 @@ def test_find_substitution(substitution: Substitution):
 def test_update_substitution(substitution: Substitution):
     substitution.update("status", "true")
     substitution.update("with whitespace", "true")
+    substitution.update("badge", "success")
 
     assert substitution.find("status") == """.. |status| replace:: true\n"""
     assert substitution.find(
         "with whitespace",
     ) == """.. |with whitespace| replace:: true\n"""
+    assert substitution.find("badge") == """.. |badge| image:: success\n"""
 
 
 def test_create_substitution():
