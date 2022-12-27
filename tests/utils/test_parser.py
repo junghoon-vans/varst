@@ -13,6 +13,7 @@ def parser() -> Generator[Parser, None, None]:
         'varst=variable to reStructuredText',
         'version=0.2.0',
         'release=v0.2.0',
+        'url=https://example.com?query=new-value',
     ])
     yield parser
 
@@ -22,6 +23,7 @@ def test_parse_sub_pairs(parser: Parser):
         'varst': 'variable to reStructuredText',
         'version': '0.2.0',
         'release': 'v0.2.0',
+        'url': 'https://example.com?query=new-value',
     }
 
 
