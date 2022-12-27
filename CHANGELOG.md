@@ -1,3 +1,9 @@
+## v1.4.0 (2022-12-27)
+
+### Feat
+
+- **parser**: Allow more than one equals sign
+
 ## v1.3.0 (2022-12-26)
 
 ### Feat
