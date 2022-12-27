@@ -70,7 +70,7 @@ def _pattern_type(arg_value: str, pat=_VARIABLE_PATTERN) -> str:
         argparse.ArgumentTypeError
 
     """
-    if not pat.fullmatch(arg_value):
+    if not pat.match(arg_value):
         raise argparse.ArgumentTypeError(f"invalid pattern: {pat.pattern}")
     return arg_value
 
@@ -107,7 +107,7 @@ def _parse_kv(variables: List[str]) -> Dict[str, str]:
     result: Dict[str, str] = {}
 
     for variable in variables:
-        kv = variable.split("=")
+        kv = variable.split("=", 1)
         result[kv.pop()] = kv.pop()
 
     return result

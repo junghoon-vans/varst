@@ -13,6 +13,7 @@ def parser() -> Generator[Parser, None, None]:
         'varst=variable to reStructuredText',
         'version=0.2.0',
         'release=v0.2.0',
+        'url=https://example.com?query=new-value',
     ])
     yield parser
 
@@ -22,6 +23,7 @@ def test_parse_sub_pairs(parser: Parser):
         'varst': 'variable to reStructuredText',
         'version': '0.2.0',
         'release': 'v0.2.0',
+        'url': 'https://example.com?query=new-value',
     }
 
 
@@ -46,17 +48,3 @@ def test_parse_one_element(parser: Parser):
         parser.parse(['key='])
     with argparse_error():
         parser.parse(['=value'])
-
-
-def test_parse_more_than_two_element(parser: Parser):
-    with argparse_error():
-        parser.parse(['key=value=else'])
-
-
-def test_parse_many_equals(parser: Parser):
-    with argparse_error():
-        parser.parse(['key==value'])
-    with argparse_error():
-        parser.parse(['key===value'])
-    with argparse_error():
-        parser.parse(['key====value'])
