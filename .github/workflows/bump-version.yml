@@ -11,15 +11,32 @@ jobs:
     runs-on: ubuntu-latest
     name: "Bump version and create changelog with commitizen"
     steps:
-      - name: Check out
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
-      - id: cz
-        name: Create bump and changelog
+
+      - name: Get latest release tag
+        run: |
+          echo "LATEST_TAG=$(git describe --tags --abbrev=0 | cut -c 2-)" >> $GITHUB_ENV
+      - name: Create bump and changelog
         uses: commitizen-tools/commitizen-action@master
         with:
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      - name: Print Version
-        run: echo "Bumped to version ${{ steps.cz.outputs.version }}"
+          github_token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
+          commit: "false"
+          push: "false"
+
+      - name: Update workflow badge in README.rst
+        if: env.LATEST_TAG != env.REVISION
+        uses: junghoon-vans/varst-action@v1
+        env:
+          BADGE_LINK: https://img.shields.io/github/actions/workflow/status/junghoon-vans/varst/python-publish.yml
+        with:
+          substitutions: "GitHub Workflow Status=${{ env.BADGE_LINK }}?branch=v${{ env.REVISION }}"
+
+      - name: Push updated files to repository
+        if: env.LATEST_TAG != env.REVISION
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "bump: version ${{ env.LATEST_TAG }} → ${{ env.REVISION }}"
+          tagging_message: "v${{ env.REVISION }}"
