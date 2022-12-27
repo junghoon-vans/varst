@@ -48,17 +48,3 @@ def test_parse_one_element(parser: Parser):
         parser.parse(['key='])
     with argparse_error():
         parser.parse(['=value'])
-
-
-def test_parse_more_than_two_element(parser: Parser):
-    with argparse_error():
-        parser.parse(['key=value=else'])
-
-
-def test_parse_many_equals(parser: Parser):
-    with argparse_error():
-        parser.parse(['key==value'])
-    with argparse_error():
-        parser.parse(['key===value'])
-    with argparse_error():
-        parser.parse(['key====value'])
