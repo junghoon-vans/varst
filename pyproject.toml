@@ -53,5 +53,6 @@ name = "cz_conventional_commits"
 version = "1.4.0"
 tag_format = "v$version"
 version_files = [
+    "varst/__init__.py",
     "pyproject.toml:version",
 ]

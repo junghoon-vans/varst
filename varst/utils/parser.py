@@ -7,6 +7,7 @@ from typing import List
 from typing import Optional
 from typing import Sequence
 
+from varst import __version__
 from varst import supported
 
 
@@ -23,6 +24,12 @@ class Parser:
             "substitutions", nargs="*",
             help="pairs of substitution definition. format is 'text=data'",
             type=_pattern_type,
+        )
+        self._parser.add_argument(
+            "-V",
+            "--version",
+            action='version',
+            version=f'varST {__version__}',
         )
         self._parser.add_argument(
             "-i",
