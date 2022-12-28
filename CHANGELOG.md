@@ -1,3 +1,9 @@
+## v1.5.0 (2022-12-28)
+
+### Feat
+
+- **parser**: Print version of program
+
 ## v1.4.0 (2022-12-27)
 
 ### Feat

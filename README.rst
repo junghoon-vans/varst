@@ -40,7 +40,7 @@ License <https://github.com/junghoon-vans/varst/blob/main/LICENSE>`__
    :target: https://github.com/marketplace/actions/rst-substitution
 .. |pre-commit.ci status| image:: https://results.pre-commit.ci/badge/github/junghoon-vans/varst/main.svg
    :target: https://results.pre-commit.ci/latest/github/junghoon-vans/varst/main
-.. |GitHub Workflow Status| image:: https://img.shields.io/github/actions/workflow/status/junghoon-vans/varst/python-publish.yml?branch=v1.2.1
+.. |GitHub Workflow Status| image:: https://img.shields.io/github/actions/workflow/status/junghoon-vans/varst/python-publish.yml?branch=v1.5.0
 .. |Documentation Status| image:: https://readthedocs.org/projects/varst/badge/?version=latest
     :target: https://varst.readthedocs.io/en/latest/?badge=latest
 
