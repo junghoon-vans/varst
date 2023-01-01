@@ -33,8 +33,7 @@ jobs:
         env:
           BADGE_LINK: https://img.shields.io/github/actions/workflow/status/junghoon-vans/varst/python-publish.yml
         with:
-          substitutions: >- 
-            'GitHub Workflow Status=${{ env.BADGE_LINK }}?branch=v${{ env.REVISION }}'
+          substitutions: 'GitHub Workflow Status=${{ env.BADGE_LINK }}?branch=v${{ env.REVISION }}'
 
       - name: Push updated files to repository
         if: env.LATEST_TAG != env.REVISION
