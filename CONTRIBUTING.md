@@ -49,11 +49,24 @@ This command will activate the virtual environment and install all dependencies.
 ### Install dependencies
 
 ```bash
-poetry install --with all # install all of group dependencies
+poetry install
 ```
 
+**Do not use `pip install` command.**
+If you want to install dependencies for production, use `poetry install` command.
+
+```bash
+poetry install --with <group>
+```
+
+Use `--with` option to install dependencies for specific group.
+If `all` keyword is used, all dependencies will be installed.
+
 Our dependencies are divided into 3 groups: `dev`, `test`, and `docs`.
-If you want to install only `dev` dependencies, please use `poetry install --with dev` command.
+
+- `dev`: dependencies for development
+- `test`: dependencies for testing
+- `docs`: dependencies for documentation
 
 How to develop
 ---
