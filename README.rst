@@ -25,6 +25,24 @@ Github Actions
 varST can be integrated with ``Github Actions``.
 Please refer to this link_ and apply it to your own workflows.
 
+Contributing
+============
+
+Contribution Guideline
+----------------------
+
+Please read the |contributing guidelines|_ to learn how to contribute to this project.
+
+Reporting Issues
+----------------
+
+If you have any questions, suggestions, or bug reports, please feel free to report them to the issue.
+
+Code of Conduct
+---------------
+
+This project is governed by the |code of conduct|_.
+
 License
 =======
 
@@ -45,3 +63,8 @@ License <https://github.com/junghoon-vans/varst/blob/main/LICENSE>`__
     :target: https://varst.readthedocs.io/en/latest/?badge=latest
 
 .. _link: https://github.com/marketplace/actions/rst-substitution
+
+.. |contributing guidelines| replace:: contributing guidelines
+.. _contributing guidelines: ./CONTRIBUTING.md
+.. |code of conduct| replace:: Code of Conduct
+.. _Code Of Conduct: ./CODE_OF_CONDUCT.md
