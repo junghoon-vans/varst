@@ -59,6 +59,10 @@ class Parser:
         self.input_file = self.output_file = arg_dict['input']
         if arg_dict['output'] is not None:
             self.output_file = arg_dict['output']
+
+        substitutions = arg_dict['substitutions']
+        if not substitutions:
+            raise ValueError("Substitutions are not passed")
         self.sub_pairs = _parse_kv(arg_dict['substitutions'])
 
 
