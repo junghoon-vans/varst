@@ -1,3 +1,9 @@
+## v1.6.0 (2023-01-12)
+
+### Feat
+
+- **parser**: Check if substitutions are provided or not
+
 ## v1.5.0 (2022-12-28)
 
 ### Feat
