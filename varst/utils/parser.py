@@ -51,6 +51,8 @@ class Parser:
 
         Args:
             argv: Arguments vector
+        Raises:
+            ValueError: If the substitutions are not passed
 
         """
         args = self._parser.parse_args(argv)
