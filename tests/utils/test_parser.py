@@ -32,8 +32,14 @@ def test_parse_without_file_path(parser: Parser):
     assert parser.output_file == './README.rst'
 
 
+def test_parse_without_substitutions(parser: Parser):
+    with pytest.raises(ValueError):
+        parser.parse(['-i=./CHANGELOG.rst', '-o=./CHANGELOG.rst'])
+
+
 def test_parse_with_file_path(parser: Parser):
     parser.parse([
+        'varst=variable to reStructuredText',
         '-i=./CHANGELOG.rst', '-o=./CHANGELOG.rst',
     ])
 
