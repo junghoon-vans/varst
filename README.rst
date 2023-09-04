@@ -4,7 +4,7 @@ varST(var ➡️ reStructuredText)
 
 |PyPI version| |Github Actions| |pre-commit.ci status| |GitHub Workflow Status| |Documentation Status|
 
-Replace substitutions in rst files with variables.
+Replace substitutions in rst file with variables.
 
 Getting Started
 ===============

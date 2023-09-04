@@ -2,7 +2,7 @@
 var ➡️ reStructuredText
 =======================
 
-Replace substitutions in rst files with variables.
+Replace substitutions in rst file with variables.
 
 Quickstart
 ==========
